@@ -30,12 +30,38 @@
             color: #586069;
             margin-top: 10px;
         }
+        .abstract {
+            margin-top: 60px;
+            text-align: left;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .abstract h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .abstract p {
+            text-align: justify;
+            font-size: 1rem;
+            color: #24292e;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>AnyAudio: Accurate, Versatile, and Training-Free Audio Control via Steering Generation</h1>
         <p class="authors">Coming Soon</p>
+
+        <section class="abstract">
+            <h2>Abstract</h2>
+            <p>
+                Text-to-audio generation systems have been capable of generating high-fidelity samples from natural language prompts with a scalable diffusion transformer (DiT). Recent advances have further allowed fine-grained controllability, which mainly spans precise timing control, long-form audio generation, as well as acoustic control (<em>e.g.</em>, pitch and loudness). However, existing methods usually leverage conditional learning, either from scratch or fine-tuning, or training-freely explore latent manipulation, both of which hinder them to achieve versatile audio control efficiently. In this work, we present a holistic audio control framework, <strong>AnyAudio</strong>, which precisely steers the sampling trajectory to desired target, fully exploiting the advantages of pre-trained audio DiT. Specifically, we first design <strong>Timing Attention Control</strong> in the condition space, aligning each sound event with their designated time intervals for precise event timing. Furthermore, we present <strong>Latent Spectral Decoupling</strong> in the diffusion intermediate representation space, fusing overlapping segments in the frequency domain for coherent long-form generation. Then, we develop <strong>Reference Attribute Control</strong> in waveform space, matching differentiable reference attributes for fine-grained physical control. These cross-space control signals share a unified paradigm of differentiable matching loss optimized via gradient descent, which can be integrated into a diffusion sampling trajectory in an accurate, composable, and training-free manner. Extensive experiments demonstrate that AnyAudio achieves state-of-the-art performance in control of timing, long-form generation, and acoustic characteristics, independently and jointly, without training resource.
+            </p>
+        </section>
     </div>
 </body>
 </html>
