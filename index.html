@@ -4,64 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnyAudio: Accurate, Versatile, and Training-Free Audio Control via Steering Generation</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #24292e;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #ffffff;
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .container {
-            margin-top: 100px;
-        }
-        /* Subtitle or author placeholder style */
-        .authors {
-            font-size: 1.2rem;
-            color: #586069;
-            margin-top: 10px;
-        }
-        .abstract {
-            margin-top: 60px;
-            text-align: left;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .abstract h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        .abstract p {
-            text-align: justify;
-            font-size: 1rem;
-            color: #24292e;
-            margin: 0;
-        }
-    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>AnyAudio: Accurate, Versatile, and Training-Free Audio Control via Steering Generation</h1>
-        <p class="authors">Coming Soon</p>
+    <header class="header-wrapper">
+        <div class="central-header">
+            <div class="title-section">
+                <h1>AnyAudio</h1>
+                <h2>Accurate, Versatile, and <em>Training-Free</em> Audio Control via Steering Generation</h2>
+            </div>
 
-        <section class="abstract">
-            <h2>Abstract</h2>
+            <div class="authors">
+                <span>Anonymous Authors</span>
+                <div class="affiliations">Anonymous Institution</div>
+            </div>
+
+            <div class="button-row">
+                <a href="#" class="button disabled" aria-disabled="true">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span> arXiv
+                </a>
+                <a href="#" class="button disabled" aria-disabled="true">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span> Paper
+                </a>
+                <a href="#" class="button disabled" aria-disabled="true">
+                    <span class="icon"><i class="fab fa-github"></i></span> Code
+                </a>
+                <a href="#demos" class="button disabled" aria-disabled="true">
+                    <span class="icon"><i class="fas fa-headphones"></i></span> Demos
+                </a>
+            </div>
+
+            <div class="tldr">
+                <span class="label">TL;DR:</span>
+                A holistic, training-free framework that steers a pre-trained audio diffusion transformer toward precise <em>timing</em>, coherent <em>long-form</em>, and fine-grained <em>acoustic</em> control under a unified gradient-based paradigm.
+            </div>
+        </div>
+    </header>
+
+    <figure class="teaser">
+        <img src="figures/pipeline.png" alt="Overview of AnyAudio">
+        <figcaption>
+            <span class="label">Figure 1.</span> Overview of AnyAudio. The gradients from all modules are back-propagated to update <i>z<sub>t</sub></i>, supporting timing, long-form, and reference attribute control under a unified paradigm.
+        </figcaption>
+    </figure>
+
+    <main class="article">
+        <section class="section" id="abstract">
+            <h3>Abstract</h3>
             <p>
-                Text-to-audio generation systems have been capable of generating high-fidelity samples from natural language prompts with a scalable diffusion transformer (DiT). Recent advances have further allowed fine-grained controllability, which mainly spans precise timing control, long-form audio generation, as well as acoustic control (<em>e.g.</em>, pitch and loudness). However, existing methods usually leverage conditional learning, either from scratch or fine-tuning, or training-freely explore latent manipulation, both of which hinder them to achieve versatile audio control efficiently. In this work, we present a holistic audio control framework, <strong>AnyAudio</strong>, which precisely steers the sampling trajectory to desired target, fully exploiting the advantages of pre-trained audio DiT. Specifically, we first design <strong>Timing Attention Control</strong> in the condition space, aligning each sound event with their designated time intervals for precise event timing. Furthermore, we present <strong>Latent Spectral Decoupling</strong> in the diffusion intermediate representation space, fusing overlapping segments in the frequency domain for coherent long-form generation. Then, we develop <strong>Reference Attribute Control</strong> in waveform space, matching differentiable reference attributes for fine-grained physical control. These cross-space control signals share a unified paradigm of differentiable matching loss optimized via gradient descent, which can be integrated into a diffusion sampling trajectory in an accurate, composable, and training-free manner. Extensive experiments demonstrate that AnyAudio achieves state-of-the-art performance in control of timing, long-form generation, and acoustic characteristics, independently and jointly, without training resource.
+                Text-to-audio generation systems have been capable of generating high-fidelity samples from natural language prompts with a scalable diffusion transformer (DiT). Recent advances have further allowed fine-grained controllability, which mainly spans precise timing control, long-form audio generation, as well as acoustic control (<em>e.g.</em>, pitch and loudness). However, existing methods usually leverage conditional learning, either from scratch or fine-tuning, or training-freely explore latent manipulation, both of which hinder them to achieve versatile audio control efficiently.
+            </p>
+            <p>
+                In this work, we present a holistic audio control framework, <strong>AnyAudio</strong>, which precisely steers the sampling trajectory to desired target, fully exploiting the advantages of pre-trained audio DiT. Specifically, we first design <strong>Timing Attention Control</strong> in the condition space, aligning each sound event with their designated time intervals for precise event timing. Furthermore, we present <strong>Latent Spectral Decoupling</strong> in the diffusion intermediate representation space, fusing overlapping segments in the frequency domain for coherent long-form generation. Then, we develop <strong>Reference Attribute Control</strong> in waveform space, matching differentiable reference attributes for fine-grained physical control.
+            </p>
+            <p>
+                These cross-space control signals share a unified paradigm of differentiable matching loss optimized via gradient descent, which can be integrated into a diffusion sampling trajectory in an accurate, composable, and training-free manner. Extensive experiments demonstrate that AnyAudio achieves state-of-the-art performance in control of timing, long-form generation, and acoustic characteristics, independently and jointly, without training resource.
             </p>
         </section>
-    </div>
+
+        <section class="section" id="contributions">
+            <h3>Key Contributions</h3>
+            <div class="key-findings">
+                <div class="key-finding">
+                    <span class="key-finding-number">1</span>
+                    <p><strong>Timing Attention Control.</strong> Operates in the condition space to align each sound event with its designated time interval, delivering precise event-level timing control.</p>
+                </div>
+                <div class="key-finding">
+                    <span class="key-finding-number">2</span>
+                    <p><strong>Latent Spectral Decoupling.</strong> Fuses overlapping segments in the frequency domain at the diffusion intermediate representation, enabling coherent long-form generation.</p>
+                </div>
+                <div class="key-finding">
+                    <span class="key-finding-number">3</span>
+                    <p><strong>Reference Attribute Control.</strong> Matches differentiable reference attributes in waveform space for fine-grained physical control over pitch, loudness, and beyond.</p>
+                </div>
+                <div class="key-finding">
+                    <span class="key-finding-number">4</span>
+                    <p><strong>Unified, training-free paradigm.</strong> All controls share a differentiable matching loss optimized via gradient descent, integrated into the diffusion sampling trajectory in an accurate, composable, and training-free way.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="demos">
+            <h3>Demos</h3>
+            <p style="text-align: center; color: var(--muted);">Audio samples coming soon.</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 AnyAudio. Page style inspired by the distill.pub template.
+    </footer>
 </body>
 </html>
