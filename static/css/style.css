@@ -433,6 +433,21 @@ a:hover { text-decoration: underline; }
     background-color: #f4f8ff;
 }
 
+.demo-table.full-width {
+    width: 100%;
+}
+.demo-table.full-width .mel,
+.demo-table.full-width .audio {
+    width: auto;
+}
+.demo-table.full-width .mel img {
+    width: 100%;
+    height: 130px;
+}
+.demo-table.full-width .audio audio {
+    width: 100%;
+}
+
 @media (max-width: 720px) {
     .demo-table .mel,
     .demo-table .audio { width: 180px; }

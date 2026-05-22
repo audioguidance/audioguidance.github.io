@@ -537,38 +537,41 @@
         <!-- ============ 3. Reference Audio Generation ============ -->
         <div class="demos-group">
             <h4>3. Reference Audio Generation</h4>
-            <p class="group-desc">Fine-grained physical control via differentiable matching against a reference clip (pitch, loudness, etc.). The reference is shown alongside ours, GT, and baselines.</p>
+            <p class="group-desc">Fine-grained attribute control via differentiable matching against a reference clip (pitch, loudness, etc.).</p>
 
             <div class="demo-block">
-                <p class="prompt"><span class="prompt-label">Prompt:</span> A violin phrase matching the pitch contour of the reference.</p>
+                <p class="prompt"><span class="prompt-label">Prompt:</span> A woman speaks repeatedly followed by beeping sounds.</p>
                 <div class="demo-table-wrapper">
                     <table class="demo-table">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Reference</th>
                                 <th class="col-ours">AnyAudio (Ours)</th>
+                                <th>AudioLDM</th>
+                                <th>Tango</th>
+                                <th>AudioComposer-S</th>
+                                <th>T2A-Adapter</th>
                                 <th>Ground Truth</th>
-                                <th>Baseline A</th>
-                                <th>Baseline B</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th>Mel</th>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="Reference mel"></td>
-                                <td class="col-ours mel"><img src="figures/placeholder_mel.png" alt="Ours mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="GT mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="Baseline A mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="Baseline B mel"></td>
+                                <td class="col-ours mel"><img src="audios/attribute/case_01/01_anyaudio.png" alt="Ours mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_01/01_audioldm.png" alt="AudioLDM mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_01/01_tango.png" alt="Tango mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_01/01_audiocomposer.png" alt="AudioComposer-S mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_01/01_t2a-adapter.png" alt="T2A-Adapter mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_01/01_gt.png" alt="GT mel"></td>
                             </tr>
                             <tr>
                                 <th>Audio</th>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample1_ref.wav"></audio></td>
-                                <td class="col-ours audio"><audio controls preload="none" src="audios/reference/sample1_ours.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample1_gt.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample1_baselineA.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample1_baselineB.wav"></audio></td>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/attribute/case_01/01_anyaudio.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_01/01_audioldm.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_01/01_tango.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_01/01_audiocomposer.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_01/01_t2a-adapter.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_01/01_gt.wav"></audio></td>
                             </tr>
                         </tbody>
                     </table>
@@ -576,35 +579,116 @@
             </div>
 
             <div class="demo-block">
-                <p class="prompt"><span class="prompt-label">Prompt:</span> A trumpet melody matching the loudness envelope of the reference.</p>
+                <p class="prompt"><span class="prompt-label">Prompt:</span> Men sing and speak to music.</p>
                 <div class="demo-table-wrapper">
                     <table class="demo-table">
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Reference</th>
                                 <th class="col-ours">AnyAudio (Ours)</th>
+                                <th>AudioLDM</th>
+                                <th>Tango</th>
+                                <th>AudioComposer-S</th>
+                                <th>T2A-Adapter</th>
                                 <th>Ground Truth</th>
-                                <th>Baseline A</th>
-                                <th>Baseline B</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th>Mel</th>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="Reference mel"></td>
-                                <td class="col-ours mel"><img src="figures/placeholder_mel.png" alt="Ours mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="GT mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="Baseline A mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel.png" alt="Baseline B mel"></td>
+                                <td class="col-ours mel"><img src="audios/attribute/case_02/02_anyaudio.png" alt="Ours mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_02/02_audioldm.png" alt="AudioLDM mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_02/02_tango.png" alt="Tango mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_02/02_audiocomposer.png" alt="AudioComposer-S mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_02/02_t2a-adapter.png" alt="T2A-Adapter mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_02/02_gt.png" alt="GT mel"></td>
                             </tr>
                             <tr>
                                 <th>Audio</th>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample2_ref.wav"></audio></td>
-                                <td class="col-ours audio"><audio controls preload="none" src="audios/reference/sample2_ours.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample2_gt.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample2_baselineA.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/reference/sample2_baselineB.wav"></audio></td>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/attribute/case_02/02_anyaudio.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_02/02_audioldm.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_02/02_tango.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_02/02_audiocomposer.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_02/02_t2a-adapter.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_02/02_gt.wav"></audio></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="demo-block">
+                <p class="prompt"><span class="prompt-label">Prompt:</span> Humans walk and speak while various sounds are heard in the background such as wind and field recordings.</p>
+                <div class="demo-table-wrapper">
+                    <table class="demo-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="col-ours">AnyAudio (Ours)</th>
+                                <th>AudioLDM</th>
+                                <th>Tango</th>
+                                <th>AudioComposer-S</th>
+                                <th>T2A-Adapter</th>
+                                <th>Ground Truth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Mel</th>
+                                <td class="col-ours mel"><img src="audios/attribute/case_03/03_anyaudio.png" alt="Ours mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_03/03_audioldm.png" alt="AudioLDM mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_03/03_tango.png" alt="Tango mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_03/03_audiocomposer.png" alt="AudioComposer-S mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_03/03_t2a-adapter.png" alt="T2A-Adapter mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_03/03_gt.png" alt="GT mel"></td>
+                            </tr>
+                            <tr>
+                                <th>Audio</th>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/attribute/case_03/03_anyaudio.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_03/03_audioldm.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_03/03_tango.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_03/03_audiocomposer.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_03/03_t2a-adapter.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_03/03_gt.wav"></audio></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="demo-block">
+                <p class="prompt"><span class="prompt-label">Prompt:</span> A woman is speaking, with music and bird vocalization in the background.</p>
+                <div class="demo-table-wrapper">
+                    <table class="demo-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="col-ours">AnyAudio (Ours)</th>
+                                <th>AudioLDM</th>
+                                <th>Tango</th>
+                                <th>AudioComposer-S</th>
+                                <th>T2A-Adapter</th>
+                                <th>Ground Truth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Mel</th>
+                                <td class="col-ours mel"><img src="audios/attribute/case_04/04_anyaudio.png" alt="Ours mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_04/04_audioldm.png" alt="AudioLDM mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_04/04_tango.png" alt="Tango mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_04/04_audiocomposer.png" alt="AudioComposer-S mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_04/04_t2a-adapter.png" alt="T2A-Adapter mel"></td>
+                                <td class="mel"><img src="audios/attribute/case_04/04_gt.png" alt="GT mel"></td>
+                            </tr>
+                            <tr>
+                                <th>Audio</th>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/attribute/case_04/04_anyaudio.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_04/04_audioldm.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_04/04_tango.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_04/04_audiocomposer.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_04/04_t2a-adapter.wav"></audio></td>
+                                <td class="audio"><audio controls preload="none" src="audios/attribute/case_04/04_gt.wav"></audio></td>
                             </tr>
                         </tbody>
                     </table>
@@ -612,50 +696,7 @@
             </div>
         </div>
 
-        <!-- ============ 4. Compositional Control ============ -->
-        <div class="demos-group">
-            <h4>4. Compositional Control</h4>
-            <p class="group-desc">All three controls jointly applied in a single sampling trajectory. Demonstrates that timing, long-form, and reference attribute control compose without retraining.</p>
-
-            <div class="demo-block">
-                <p class="prompt"><span class="prompt-label">Prompt:</span> Long-form rain ambience (20s) with thunder claps at 5s and 14s, matching the loudness envelope of a reference clip.</p>
-                <div class="demo-table-wrapper">
-                    <table class="demo-table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Reference</th>
-                                <th class="col-ours">AnyAudio (Ours)</th>
-                                <th>Ground Truth</th>
-                                <th>Timing only</th>
-                                <th>Long-form only</th>
-                                <th>Reference only</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Mel</th>
-                                <td class="mel"><img src="figures/placeholder_mel_long.png" alt="Reference mel"></td>
-                                <td class="col-ours mel"><img src="figures/placeholder_mel_long.png" alt="Ours mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel_long.png" alt="GT mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel_long.png" alt="Timing only mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel_long.png" alt="Long-form only mel"></td>
-                                <td class="mel"><img src="figures/placeholder_mel_long.png" alt="Reference only mel"></td>
-                            </tr>
-                            <tr>
-                                <th>Audio</th>
-                                <td class="audio"><audio controls preload="none" src="audios/composite/sample1_ref.wav"></audio></td>
-                                <td class="col-ours audio"><audio controls preload="none" src="audios/composite/sample1_ours.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/composite/sample1_gt.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/composite/sample1_timing.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/composite/sample1_longform.wav"></audio></td>
-                                <td class="audio"><audio controls preload="none" src="audios/composite/sample1_reference.wav"></audio></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <!-- ============ 4. Holistic Audio Control (removed) ============ -->
     </section>
 
     <footer>
