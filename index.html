@@ -537,7 +537,7 @@
         <!-- ============ 3. Reference Audio Generation ============ -->
         <div class="demos-group">
             <h4>3. Reference Audio Generation</h4>
-            <p class="group-desc">Fine-grained attribute control via differentiable matching against a reference clip (pitch, loudness, etc.).</p>
+            <p class="group-desc">Fine-grained attribute control via differentiable matching against a reference clip. In the mel-spectrograms, the <span style="color:#e22c27; font-weight:600;">red</span> curve denotes pitch and the <span style="color:#00d1ff; font-weight:600;">blue</span> curve denotes loudness.</p>
 
             <div class="demo-block">
                 <p class="prompt"><span class="prompt-label">Prompt:</span> A woman speaks repeatedly followed by beeping sounds.</p>
@@ -696,7 +696,188 @@
             </div>
         </div>
 
-        <!-- ============ 4. Holistic Audio Control (removed) ============ -->
+        <!-- ============ 4. Holistic Audio Generation ============ -->
+        <div class="demos-group">
+            <h4>4. Holistic Audio Generation</h4>
+            <p class="group-desc">All three controls jointly applied in a single sampling trajectory. Demonstrates that timing, long-form, and reference attribute control compose without retraining.</p>
+
+            <div class="demo-block">
+                <p class="prompt"><span class="prompt-label">Prompt:</span> A woman is speaking, humming, and babbling with music playing in the background.</p>
+                <div class="timing">
+                    <div class="timing-label">Timing condition (26.0s)</div>
+                    <div class="timing-events">
+                        <div class="timing-event-name">Music</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#f59e0b; left:0%; width:100%;"></div>
+                        </div>
+
+                        <div class="timing-event-name">Hum</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#508af6; left:0%; width:23.08%;"></div>
+                        </div>
+
+                        <div class="timing-event-name">Babbling</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#10b981; left:23.08%; width:38.46%;"></div>
+                        </div>
+
+                        <div class="timing-event-name">Female speech</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#a855f7; left:61.54%; width:38.46%;"></div>
+                        </div>
+                    </div>
+                    <div class="timing-axis">
+                        <div class="timing-axis-marks">
+                            <span>0.0s</span><span>6.5s</span><span>13.0s</span><span>19.5s</span><span>26.0s</span>
+                        </div>
+                    </div>
+                    <div class="timing-intervals">
+                        <span class="ti-name">music</span>: [0.000, 26.000]
+                        <span class="ti-sep">·</span>
+                        <span class="ti-name">hum</span>: [0.000, 6.000]
+                        <span class="ti-sep">·</span>
+                        <span class="ti-name">babbling</span>: [6.000, 16.000]
+                        <span class="ti-sep">·</span>
+                        <span class="ti-name">female speech</span>: [16.000, 26.000]
+                    </div>
+                </div>
+                <div class="demo-table-wrapper">
+                    <table class="demo-table full-width">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="col-ours">AnyAudio (Ours)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Reference</th>
+                                <td class="col-ours mel"><img src="audios/holistic/case_01/01_reference.png" alt="Reference"></td>
+                            </tr>
+                            <tr>
+                                <th>Mel</th>
+                                <td class="col-ours mel"><img src="audios/holistic/case_01/01_anyaudio.png" alt="Ours mel"></td>
+                            </tr>
+                            <tr>
+                                <th>Audio</th>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/holistic/case_01/01_anyaudio.wav"></audio></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="demo-block">
+                <p class="prompt"><span class="prompt-label">Prompt:</span> A sink is filled with water and music plays.</p>
+                <div class="timing">
+                    <div class="timing-label">Timing condition (26.0s)</div>
+                    <div class="timing-events">
+                        <div class="timing-event-name">Music</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#f59e0b; left:0%; width:100%;"></div>
+                        </div>
+
+                        <div class="timing-event-name">Sink (filling or washing)</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#508af6; left:0%; width:100%;"></div>
+                        </div>
+                    </div>
+                    <div class="timing-axis">
+                        <div class="timing-axis-marks">
+                            <span>0.0s</span><span>6.5s</span><span>13.0s</span><span>19.5s</span><span>26.0s</span>
+                        </div>
+                    </div>
+                    <div class="timing-intervals">
+                        <span class="ti-name">music</span>: [0.000, 26.000]
+                        <span class="ti-sep">·</span>
+                        <span class="ti-name">sink (filling or washing)</span>: [0.000, 26.000]
+                    </div>
+                </div>
+                <div class="demo-table-wrapper">
+                    <table class="demo-table full-width">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="col-ours">AnyAudio (Ours)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Reference</th>
+                                <td class="col-ours mel"><img src="audios/holistic/case_02/02_reference.png" alt="Reference"></td>
+                            </tr>
+                            <tr>
+                                <th>Mel</th>
+                                <td class="col-ours mel"><img src="audios/holistic/case_02/02_anyaudio.png" alt="Ours mel"></td>
+                            </tr>
+                            <tr>
+                                <th>Audio</th>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/holistic/case_02/02_anyaudio.wav"></audio></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="demo-block">
+                <p class="prompt"><span class="prompt-label">Prompt:</span> Men and women are speaking and honking horns in a busy, noisy setting.</p>
+                <div class="timing">
+                    <div class="timing-label">Timing condition (26.0s)</div>
+                    <div class="timing-events">
+                        <div class="timing-event-name">A busy, noisy setting</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#f59e0b; left:0%; width:100%;"></div>
+                        </div>
+
+                        <div class="timing-event-name">Men and women are speaking</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#508af6; left:0%; width:100%;"></div>
+                        </div>
+
+                        <div class="timing-event-name">Vehicle horn, car horn, honking, toot</div>
+                        <div class="timing-event-track">
+                            <div class="timing-event-bar" style="--bar-color:#10b981; left:61.54%; width:3.85%;"></div>
+                        </div>
+                    </div>
+                    <div class="timing-axis">
+                        <div class="timing-axis-marks">
+                            <span>0.0s</span><span>6.5s</span><span>13.0s</span><span>19.5s</span><span>26.0s</span>
+                        </div>
+                    </div>
+                    <div class="timing-intervals">
+                        <span class="ti-name">a busy, noisy setting</span>: [0.000, 26.000]
+                        <span class="ti-sep">·</span>
+                        <span class="ti-name">men and women are speaking</span>: [0.000, 26.000]
+                        <span class="ti-sep">·</span>
+                        <span class="ti-name">vehicle horn</span>: [16.000, 17.000]
+                    </div>
+                </div>
+                <div class="demo-table-wrapper">
+                    <table class="demo-table full-width">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="col-ours">AnyAudio (Ours)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Reference</th>
+                                <td class="col-ours mel"><img src="audios/holistic/case_03/03_reference.png" alt="Reference"></td>
+                            </tr>
+                            <tr>
+                                <th>Mel</th>
+                                <td class="col-ours mel"><img src="audios/holistic/case_03/03_anyaudio.png" alt="Ours mel"></td>
+                            </tr>
+                            <tr>
+                                <th>Audio</th>
+                                <td class="col-ours audio"><audio controls preload="none" src="audios/holistic/case_03/03_anyaudio.wav"></audio></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
 
     <footer>
